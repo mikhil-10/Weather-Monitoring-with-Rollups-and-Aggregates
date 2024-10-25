@@ -7,7 +7,7 @@ const Weather = require('../Utils/weatherData');
 router.get('/:city', async (req, res) => {
     const city = req.params.city;
     try {
-        const weatherResponse = await axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=5a62e441182bb06dd88d3e5445ad3ddf&units=metric`);
+        const weatherResponse = await axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=YOUR_API_KEY&units=metric`);
         const weatherData = weatherResponse.data;
 
         const mappedWeatherData = {
@@ -37,7 +37,7 @@ router.get('/:city', async (req, res) => {
 router.get('/forecast/:city', async (req, res) => {
     const city = req.params.city;
     try {
-        const forecastResponse = await axios.get(`http://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=5a62e441182bb06dd88d3e5445ad3ddf&units=metric`);
+        const forecastResponse = await axios.get(`http://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=YOUR_API_KEY&units=metric`);
         const forecastData = forecastResponse.data.list.slice(0, 7); // Get the next 7 days of forecast data
 
         const dailyForecast = forecastData.map(data => ({
